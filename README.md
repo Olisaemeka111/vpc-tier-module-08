@@ -15,7 +15,7 @@ stands a 3-tier VPC with NAT,ASG,SG,ALB,and NLB.
 + Monitoring and Logging: Implementation of AWS CloudWatch, CloudTrail, and possibly third-party solutions like datadog, splunk.
 ### Steps taken:
 + First, please see reference to the architecture.
-[https://github.com/Okawuma/IAC-VPC/blob/main/modules/vpc/vpc.drawio.png]
+[https://github.com/Mozenty/vpc-tier-module-08/blob/main/vpc.drawio.png]
 ### create the vpc main.tf file and the varaibles.tf side by side
 ### Inside the main.tf file, create the following resources:
 #### - create the vpc.
