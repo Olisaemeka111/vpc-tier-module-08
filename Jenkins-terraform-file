@@ -6,8 +6,8 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-            git branch: 'dev', url: 'https://github.com/Okawuma/simple-terraform.git'
+            steps{
+            git branch: 'dev', url: 'https://github.com/Okawuma/vpc-tier-module-08.git'
             }
         }
         
