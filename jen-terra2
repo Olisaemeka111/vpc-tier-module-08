@@ -55,13 +55,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            // Cleanup, if needed
-        }
-        failure {
-            // Actions to take on failure
-        }
-    }
-}
-
+   
