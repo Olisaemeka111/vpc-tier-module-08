@@ -1,0 +1,72 @@
+pipeline {
+    agent any
+    tools {
+        terraform 'Terraform v1.6.1'
+    }
+
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    }
+
+    stages {
+        stage('Checkout') {
+            steps{
+                git branch: 'main', url: 'https://github.com/Okawuma/vpc-tier-module-08.git'
+            }
+        }
+        
+        stage('Debug - List Files') {
+            steps {
+                script {
+                    // List files in current directory to debug
+                    sh 'ls -al'
+                }
+            }
+        }
+
+        stage("terraform init") {
+            steps {
+                script {
+                    // Initialize Terraform
+                    sh 'terraform init'
+                }
+            } 
+        }
+                
+        stage("terraform plan") {
+            steps {
+                script {
+                    // Create a Terraform Plan
+                    try {
+                        sh 'terraform plan'
+                    } catch (Exception e) {
+                        echo "Terraform plan failed: ${e.getMessage()}"
+                        currentBuild.result = 'FAILURE'
+                    }
+                }
+            }
+        }
+                
+        stage("terraform apply") {
+            when {
+                expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+            }
+            steps {
+                script {
+                    // Apply the Terraform Plan
+                    sh 'terraform apply --auto-approve'
+                }
+            }
+        }
+    }
+    post {
+        always {
+            // Cleanup, if needed
+        }
+        failure {
+            // Actions to take on failure
+        }
+    }
+}
+
