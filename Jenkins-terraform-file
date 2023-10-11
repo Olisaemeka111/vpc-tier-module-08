@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools {
-        terraform ('terraform_1.4.6_linux_amd64')
+        terraform ('terraform_1.6.1_linux_amd64')
     }
 
     stages {
         stage('Checkout') {
             steps{
-            git branch: 'dev', url: 'https://github.com/Okawuma/vpc-tier-module-08.git'
+            git branch: 'main', url: 'https://github.com/Okawuma/vpc-tier-module-08.git'
             }
         }
         
