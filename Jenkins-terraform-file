@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        terraform ('terraform_1.6.1_linux_amd64')
+        terraform ('Terraform v1.6.1')
     }
 
     stages {
