@@ -2,13 +2,13 @@ pipeline {
     agent any
     tools {
         terraform ("Terraform 1.6.1")
-    }
 
     environment {
         AWS_DEFAULT_REGION = ("eu-west-2")
         AWS_ACCESS_KEY_ID     = ("AKIAWJB5RPMZNLEXJEHY")
         AWS_SECRET_ACCESS_KEY = ("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")
     }
+}
 
     stages {
         stage('Checkout') {
@@ -24,7 +24,6 @@ pipeline {
                     }
                 }
             }
-        }
 
         stage ("terraform plan") {
             steps {
@@ -35,6 +34,7 @@ pipeline {
         stage ("terraform apply") {
             steps {
                 sh ('terraform apply --auto-approve')
+                }
             }
         }
     }
