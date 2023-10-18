@@ -13,8 +13,7 @@ pipeline {
         
         stage ("terraform init") {
             steps {
-               dir('appleSCH-website') {
-                    // some block
+               dir('/var/lib/jenkins/workspace/terraform-jen/appleSCH-website') {
                     
                     sh ('terraform init')
                 }
