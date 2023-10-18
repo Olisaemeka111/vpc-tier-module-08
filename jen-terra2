@@ -19,7 +19,7 @@ pipeline {
 
         stage ("terraform init") {
             steps {
-                dir("/workspaces/vpc-tier-module-08/appleSCH-website") 
+                dir("/vpc-tier-module-08/appleSCH-website/") 
                     sh ('terraform init')
                     }
                 }
