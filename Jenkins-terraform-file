@@ -13,7 +13,8 @@ pipeline {
         
         stage ("terraform init") {
             steps {
-                dir("vpc-tier-module-08/appleSCH-website/") {
+               dir('appleSCH-website') {
+                    // some block
                     
                     sh ('terraform init')
                 }
