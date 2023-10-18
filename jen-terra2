@@ -19,17 +19,9 @@ pipeline {
 
         stage ("terraform init") {
             steps {
-                dir("../modules/appleSCH-website/main.tf") 
+                dir("../modules/appleSCH-website/main"){ 
                     sh ('terraform init')
-
- steps {
-                dir("appleSCH-website") { // Ensure this path is correct
-                    sh ('terraform init')
-
-
-
-
-
+                    }
                 }
             }
         }
