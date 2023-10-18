@@ -13,6 +13,7 @@ pipeline {
         
         stage ("terraform init") {
             steps {
+                cd appleSCH-website
                 sh ('terraform init')
             } 
         }
