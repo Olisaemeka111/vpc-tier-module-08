@@ -1,7 +1,7 @@
 # configure aws provider
 provider "aws" {
   region  = var.region
-  profile = "otillia-aws"
+  profile = "otillia"
 }
 
 # create vpc for the appleSCH-website project
