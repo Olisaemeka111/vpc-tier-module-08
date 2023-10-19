@@ -31,7 +31,7 @@ pipeline {
         }
         stage ("terraform plan") {
         steps {
-                dir('/var/lib/jenkins/workspace/terraform-jen/appleSCH-website') { { 
+                dir('/var/lib/jenkins/workspace/terraform-jen/appleSCH-website') { 
                     sh ('terraform plan')
                  }
             } 
