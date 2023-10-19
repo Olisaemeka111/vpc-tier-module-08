@@ -29,13 +29,19 @@ pipeline {
                 sh ('terraform validate') 
             }
         }
-               
         stage ("terraform plan") {
+        steps {
+                dir("appleSCH-website") { 
+                    sh "terraform plan -var-file=${env.TF_VAR_config_file}"
+                }
+               
+        /* stage ("terraform plan") {
             steps {
                 sh ('terraform plan') 
             }
         }
-                
+           */
+
         stage ("terraform apply") {
             steps {
                 sh ('terraform apply --auto-approve') 
