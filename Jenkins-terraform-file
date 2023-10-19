@@ -31,8 +31,8 @@ pipeline {
         }
         stage ("terraform plan") {
         steps {
-                dir("appleSCH-website") { 
-                    sh ("terraform plan -var-file=${env.TF_VAR_config_file}")
+                dir('/var/lib/jenkins/workspace/terraform-jen/appleSCH-website') { { 
+                    sh ('terraform plan')
                 }
                
         /* stage ("terraform plan") {
