@@ -1,7 +1,7 @@
 # configure aws provider
 provider "aws" {
   region  = var.region
-  profile = "otillia"
+  profile = var.profile
 }
 
 # create vpc for the appleSCH-website project
@@ -11,6 +11,7 @@ provider "aws" {
 module "vpc" {
   source                      = "../modules/vpc"
   region                      = var.region
+  profile                     = var.profile
   project_name                = var.project_name
   vpc_cidr                    = var.vpc_cidr
   public_subnet_az1_cidr      = var.public_subnet_az1_cidr
