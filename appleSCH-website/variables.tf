@@ -1,4 +1,5 @@
 variable "region" {}
+variable "profile" {}
 variable "project_name" {
   description = "this is the project name"
   type        = string
