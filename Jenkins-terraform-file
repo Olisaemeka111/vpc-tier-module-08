@@ -24,12 +24,25 @@ pipeline {
                 }
             } 
         }
+
+        stage ("terraform fmt") {
+            steps {
+                sh ('terraform fmt --recursive') 
+            }
+        }
+
          stage ("terraform validate") {
             steps {
                 sh ('terraform validate') 
             }
         }
         stage ("terraform plan") {
+            steps {
+                sh ('terraform plan var-file="terraform.tfvars"') 
+            }
+        }
+
+       /*  stage ("terraform plan") {
         steps {
                 dir('/var/lib/jenkins/workspace/terraform-jen/appleSCH-website') { 
                     sh ('terraform plan')
@@ -38,7 +51,7 @@ pipeline {
         }
         
                
-        /* stage ("terraform plan") {
+            stage ("terraform plan") {
             steps {
                 sh ('terraform plan') 
             }
