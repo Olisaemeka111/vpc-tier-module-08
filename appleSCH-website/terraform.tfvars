@@ -2,6 +2,7 @@
 # note! no space after variable name like so below.
 # The syntax below will create my terraform vpc module with the values specified below.
 region                      = "eu-west-2"
+profile                     = "otillia-aws"
 project_name                = "appleSCH-website"
 vpc_cidr                    = "10.0.0.0/16"
 public_subnet_az1_cidr      = "10.0.0.0/24"
